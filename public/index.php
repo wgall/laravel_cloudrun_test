@@ -1,6 +1,6 @@
-#####
-<?php
 
+<?php
+/* Test */
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
