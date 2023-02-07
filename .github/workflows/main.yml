@@ -1,0 +1,22 @@
+name: Build and Push image to registry
+
+on:
+  push:
+    tags:
+    - v*.*.*
+    branches:
+      - dev 
+    paths:
+      - '**.*'
+ 
+  release:
+    types: 
+    - published
+    
+jobs:
+# Workflow defines what trigger an action and uses action that is suitable for the process
+  trigger-build:
+    if: ${{ github.event_name == 'push' }}
+    uses: wgall/cloudrun_laravel_cicd/.github/workflows/main.yml@main
+    secrets: inherit
+  
