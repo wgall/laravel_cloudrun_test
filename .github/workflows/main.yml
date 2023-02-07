@@ -19,4 +19,11 @@ jobs:
     if: ${{ github.event_name == 'push' }}
     uses: wgall/cloudrun_laravel_cicd/.github/workflows/main.yml@main
     secrets: inherit
-  
+  versioning:
+    if: ${{ github.event_name == 'release' && github.event.release.prerelease }}
+    uses: wgall/cloudrun_laravel_cicd/.github/workflows/versioning.yml@main
+    secrets: inherit
+  production: 
+    if: ${{ github.event_name == 'release' && !github.event.release.prerelease }}
+    uses: wgall/cloudrun_laravel_cicd/.github/workflows/production.yml@main
+    secrets: inherit
