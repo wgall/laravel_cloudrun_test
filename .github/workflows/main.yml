@@ -16,7 +16,7 @@ on:
 jobs:
 # Workflow defines what trigger an action and uses action that is suitable for the process
   trigger-build:
-    if: ${{ github.event_name == 'push' }}
+    if: ${{ github.event_name == 'push' && github.event.release.prerelease }}
     uses: wgall/cloudrun_laravel_cicd/.github/workflows/main.yml@main
     secrets: inherit
   versioning:
