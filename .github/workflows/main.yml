@@ -10,8 +10,7 @@ on:
       - '**.*'
  
   release:
-    types: 
-    - published
+
     
 jobs:
 # Workflow defines what trigger an action and uses action that is suitable for the process
